@@ -36,8 +36,8 @@
     "directory": "packages/graphql-server"
   },
   "devDependencies": {
-    "@babel/cli": "7.16.7",
-    "@babel/core": "7.16.7",
+    "@babel/cli": "7.16.8",
+    "@babel/core": "7.16.12",
     "@envelop/testing": "3.0.1",
     "@envelop/types": "1.5.1",
     "@redwoodjs/auth": "v0.43.0",
