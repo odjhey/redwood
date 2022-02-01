@@ -219,7 +219,10 @@ export const generateTypeDefGraphQLWeb = async () => {
   try {
     const f = await runCodegenGraphQL({
       [path.join(rwjsPaths.web.types, 'graphql.d.ts')]: {
-        documents: './web/src/**/!(*.d).{ts,tsx,js,jsx}',
+        documents: path.join(
+          rwjsPaths.web.base,
+          '/src/**/!(*.d).{ts,tsx,js,jsx}'
+        ),
         plugins: [
           {
             typescript: {
