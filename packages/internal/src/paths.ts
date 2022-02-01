@@ -87,22 +87,22 @@ const PATH_API_DIR_SERVICES = 'api/src/services'
 const PATH_API_DIR_DIRECTIVES = 'api/src/directives'
 const PATH_API_DIR_SRC = 'api/src'
 
-const PATH_WEB_ROUTES = '/src/Routes' // .js|.tsx
-const PATH_WEB_DIR_LAYOUTS = '/src/layouts/'
-const PATH_WEB_DIR_PAGES = '/src/pages/'
-const PATH_WEB_DIR_COMPONENTS = '/src/components'
-const PATH_WEB_DIR_SRC = '/src'
-const PATH_WEB_DIR_SRC_APP = '/src/App'
-const PATH_WEB_DIR_SRC_INDEX = '/src/index' // .js|.tsx
-const PATH_WEB_DIR_GENERATORS = '/generators'
-const PATH_WEB_DIR_CONFIG = '/config'
-const PATH_WEB_DIR_CONFIG_WEBPACK = '/config/webpack.config.js'
-const PATH_WEB_DIR_CONFIG_POSTCSS = '/config/postcss.config.js'
-const PATH_WEB_DIR_CONFIG_STORYBOOK_CONFIG = '/config/storybook.config.js'
-const PATH_WEB_DIR_CONFIG_STORYBOOK_PREVIEW = '/config/storybook.preview.js'
-const PATH_WEB_DIR_CONFIG_STORYBOOK_MANAGER = '/config/storybook.manager.js'
+const PATH_WEB_ROUTES = 'src/Routes' // .js|.tsx
+const PATH_WEB_DIR_LAYOUTS = 'src/layouts/'
+const PATH_WEB_DIR_PAGES = 'src/pages/'
+const PATH_WEB_DIR_COMPONENTS = 'src/components'
+const PATH_WEB_DIR_SRC = 'src'
+const PATH_WEB_DIR_SRC_APP = 'src/App'
+const PATH_WEB_DIR_SRC_INDEX = 'src/index' // .js|.tsx
+const PATH_WEB_DIR_GENERATORS = 'generators'
+const PATH_WEB_DIR_CONFIG = 'config'
+const PATH_WEB_DIR_CONFIG_WEBPACK = 'config/webpack.config.js'
+const PATH_WEB_DIR_CONFIG_POSTCSS = 'config/postcss.config.js'
+const PATH_WEB_DIR_CONFIG_STORYBOOK_CONFIG = 'config/storybook.config.js'
+const PATH_WEB_DIR_CONFIG_STORYBOOK_PREVIEW = 'config/storybook.preview.js'
+const PATH_WEB_DIR_CONFIG_STORYBOOK_MANAGER = 'config/storybook.manager.js'
 
-const PATH_WEB_DIR_DIST = '/dist'
+const PATH_WEB_DIR_DIST = 'dist'
 
 /**
  * Search the parent directories for the Redwood configuration file.
@@ -153,7 +153,9 @@ export const resolveFile = (
 // TODO: Make this a proxy and make it lazy.
 export const getPaths = (BASE_DIR: string = getBaseDir()): Paths => {
   const { path: webPath } = getConfig(getConfigPath(BASE_DIR)).web
-  const routes = resolveFile(path.join(BASE_DIR, webPath, PATH_WEB_ROUTES)) as string
+  const routes = resolveFile(
+    path.join(BASE_DIR, webPath, PATH_WEB_ROUTES)
+  ) as string
   const { schemaPath } = getConfig(getConfigPath(BASE_DIR)).api
   const schemaDir = path.dirname(schemaPath)
 
@@ -198,21 +200,26 @@ export const getPaths = (BASE_DIR: string = getBaseDir()): Paths => {
       layouts: path.join(BASE_DIR, webPath, PATH_WEB_DIR_LAYOUTS),
       src: path.join(BASE_DIR, webPath, PATH_WEB_DIR_SRC),
       generators: path.join(BASE_DIR, webPath, PATH_WEB_DIR_GENERATORS),
-      app: resolveFile(path.join(BASE_DIR, webPath, PATH_WEB_DIR_SRC_APP)) as string,
+      app: resolveFile(
+        path.join(BASE_DIR, webPath, PATH_WEB_DIR_SRC_APP)
+      ) as string,
       index: resolveFile(path.join(BASE_DIR, webPath, PATH_WEB_DIR_SRC_INDEX)),
       config: path.join(BASE_DIR, webPath, PATH_WEB_DIR_CONFIG),
       webpack: path.join(BASE_DIR, webPath, PATH_WEB_DIR_CONFIG_WEBPACK),
       postcss: path.join(BASE_DIR, webPath, PATH_WEB_DIR_CONFIG_POSTCSS),
       storybookConfig: path.join(
-        BASE_DIR, webPath,
+        BASE_DIR,
+        webPath,
         PATH_WEB_DIR_CONFIG_STORYBOOK_CONFIG
       ),
       storybookPreviewConfig: path.join(
-        BASE_DIR, webPath,
+        BASE_DIR,
+        webPath,
         PATH_WEB_DIR_CONFIG_STORYBOOK_PREVIEW
       ),
       storybookManagerConfig: path.join(
-        BASE_DIR, webPath,
+        BASE_DIR,
+        webPath,
         PATH_WEB_DIR_CONFIG_STORYBOOK_MANAGER
       ),
       dist: path.join(BASE_DIR, webPath, PATH_WEB_DIR_DIST),

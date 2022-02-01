@@ -221,7 +221,7 @@ export const generateTypeDefGraphQLWeb = async () => {
       [path.join(rwjsPaths.web.types, 'graphql.d.ts')]: {
         documents: path.join(
           rwjsPaths.web.base,
-          '/src/**/!(*.d).{ts,tsx,js,jsx}'
+          'src/**/!(*.d).{ts,tsx,js,jsx}'
         ),
         plugins: [
           {
