@@ -342,7 +342,7 @@ module.exports = (webpackEnv) => {
       chunkFilename: isEnvProduction
         ? 'static/js/[name].[contenthash:8].chunk.js'
         : 'static/js/[name].chunk.js',
-      path: path.resolve(redwoodPaths.base, 'web/dist'),
+      path: path.resolve(redwoodPaths.web.base, 'dist'),
       publicPath: '/',
       devtoolModuleFilenameTemplate: isEnvProduction
         ? (info) =>
