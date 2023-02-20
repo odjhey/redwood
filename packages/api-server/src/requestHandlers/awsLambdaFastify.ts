@@ -22,7 +22,7 @@ const lambdaEventForFastifyRequest = (
         sourceIp: request.ip,
       },
     },
-    ...parseBody(request.rawBody || ''), // adds `body` and `isBase64Encoded`
+    ...parseBody(request.body || ''), // adds `body` and `isBase64Encoded`
   } as APIGatewayProxyEvent
 }
 
